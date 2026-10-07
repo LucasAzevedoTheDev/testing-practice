@@ -26,23 +26,34 @@ function caesarCipher(string, key) {
     return "khOOr";
   }
 
+  if (hasCapitalLetter(string)) {
+    const alphabetPairs = defaultAlphabet.map((letter) => [
+      letter,
+      letter.toUpperCase(),
+    ]);
+  }
+
   function rotateAlphabet(array, key) {
     for (let i = 0; i < key; i++) {
       array.push(array.shift());
     }
     return array;
   }
+
   const rotated = rotateAlphabet([...defaultAlphabet], key);
+
   const wordIndex = string
     .split("")
     .map((element) => defaultAlphabet.indexOf(element));
+
   const encryptedLetters = wordIndex.map((index) => {
     return rotated[index];
   });
+
   return encryptedLetters.join("");
 }
 
 console.log(caesarCipher("LosAngeles", 0));
-console.log(hasCapitalLetter("LosAngeles"));
+// console.log(hasCapitalLetter("LosAngeles"));
 
 export { capitalize, reverse, calculator, caesarCipher };
