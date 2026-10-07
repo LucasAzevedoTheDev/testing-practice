@@ -24,17 +24,12 @@ function rotateAlphabet(array, key) {
 function caesarCipher(string, key) {
   // prettier-ignore
   const defaultAlphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  // TEST
-  // if (string === "heLLo") {
-  //   return "khOOr";
-  // }
 
   let rotated = rotateAlphabet([...defaultAlphabet], key);
-  //            UPPERCASE HANDLER
-  //1 split string
+
   const split = string.split("");
-  //2 store index of upper case letters
   const indexRecord = [];
+
   split.forEach((letter, index) => {
     const isUpperCase = () => {
       return /[A-Z]/.test(letter);
@@ -43,22 +38,24 @@ function caesarCipher(string, key) {
       indexRecord.push(index);
     }
   });
-  console.log(indexRecord);
-  //3 turn all lower case
-  string.toLowerCase();
-  //4 find the index (wordIndex)
-  let wordIndex = string
+
+  const stringDefault = string.toLowerCase();
+  let wordIndex = stringDefault
     .split("")
     .map((element) => defaultAlphabet.indexOf(element));
-  //5 make encrypted word (encryptedLetters)
+
   let encryptedLetters = wordIndex.map((index) => {
     return rotated[index];
   });
-  //6 turn upper case like before with the index
-  // join it back and return
 
-  return encryptedLetters.join("");
+  const finalLetters = encryptedLetters.map((letter, index) => {
+    if (indexRecord.includes(index)) {
+      return letter.toUpperCase();
+    }
+    return letter;
+  });
+
+  return finalLetters.join("");
 }
 
-// caesarCipher("Los Angeles", 0);
 export { capitalize, reverse, calculator, caesarCipher };
