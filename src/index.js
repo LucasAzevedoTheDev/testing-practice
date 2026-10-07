@@ -21,10 +21,6 @@ function rotateAlphabet(array, key) {
   return array;
 }
 
-function hasCapitalLetter(str) {
-  return /[A-Z]/.test(str);
-}
-
 function caesarCipher(string, key) {
   // prettier-ignore
   const defaultAlphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -33,25 +29,34 @@ function caesarCipher(string, key) {
   //   return "khOOr";
   // }
 
-    //            UPPERCASE HANDLER 
-    
-    //1 split string
-    //2 store index of upper case letters
-    //3 turn all lower case
-    //4 find the index (wordIndex)
-    //5 make encrypted word (encryptedLetters)
-    //6 turn upper case like before with the index
-    // join it back and return
+  //            UPPERCASE HANDLER
+
+  //1 split string
+  const split = string.split("");
+  //2 store index of upper case letters
+  const indexRecord = [];
+  split.forEach((letter, index) => {
+    const isUpperCase = () => {return /[A-Z]/.test(letter)};
+    if (isUpperCase()) {
+      indexRecord.push(index);
+    }
+  });
+  console.log(indexRecord);
+  //3 turn all lower case
+  //4 find the index (wordIndex)
+  //5 make encrypted word (encryptedLetters)
+  //6 turn upper case like before with the index
+  // join it back and return
 
   let rotated = rotateAlphabet([...defaultAlphabet], key);
   let wordIndex = string
     .split("")
     .map((element) => defaultAlphabet.indexOf(element));
-    console.log(wordIndex);
+  // console.log(wordIndex);
   let encryptedLetters = wordIndex.map((index) => {
     return rotated[index];
   });
-  console.log(encryptedLetters);
+  // console.log(encryptedLetters);
 
   return encryptedLetters.join("");
 }
