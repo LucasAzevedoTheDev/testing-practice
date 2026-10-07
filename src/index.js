@@ -14,4 +14,27 @@ const calculator = {
   multiply: (a, b) => a * b,
 };
 
-export { capitalize, reverse, calculator };
+function caesarCipher(string, key) {
+  // prettier-ignore
+  const defaultAlphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+  function rotateAlphabet(array, key) {
+    for (let i = 0; i < key; i++) {
+      array.push(array.shift());
+    }
+    return array;
+  }
+  const rotated = rotateAlphabet([...defaultAlphabet], key);
+  const wordIndex = string
+    .split("")
+    .map((element) => defaultAlphabet.indexOf(element));
+
+  // replace the char at equivalent encrypted index
+  const encryptedLetters = wordIndex.map((index) => {
+    return rotated[index];
+  });
+
+  return encryptedLetters.join("");
+}
+
+export { capitalize, reverse, calculator, caesarCipher };
