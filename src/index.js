@@ -14,11 +14,15 @@ const calculator = {
   multiply: (a, b) => a * b,
 };
 
+function hasCapitalLetter(str) {
+  return /[A-Z]/.test(str);
+}
+
 function caesarCipher(string, key) {
   // prettier-ignore
   const defaultAlphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   // TEST
-  if(string === "heLLo") {
+  if (string === "heLLo") {
     return "khOOr";
   }
 
@@ -39,5 +43,6 @@ function caesarCipher(string, key) {
 }
 
 console.log(caesarCipher("LosAngeles", 0));
+console.log(hasCapitalLetter("LosAngeles"));
 
 export { capitalize, reverse, calculator, caesarCipher };
