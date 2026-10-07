@@ -3,4 +3,8 @@ function capitalize(string) {
   return capitalized;
 }
 
-export { capitalize };
+function reverse(string) {
+  return string.split("").reverse().join("");
+}
+
+export { capitalize, reverse };
