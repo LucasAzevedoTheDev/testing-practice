@@ -15,4 +15,7 @@ describe("Calculator", () => {
   test("Subtract", () => {
     expect(calculator.subtract(2, 1)).toBe(1);
   });
+  test("Divide", () => {
+    expect(calculator.divide(10, 5)).toBe(2);
+  });
 });
