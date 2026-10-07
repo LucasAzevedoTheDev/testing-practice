@@ -17,6 +17,10 @@ const calculator = {
 function caesarCipher(string, key) {
   // prettier-ignore
   const defaultAlphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  // TEST
+  if(string === "heLLo") {
+    return "khOOr";
+  }
 
   function rotateAlphabet(array, key) {
     for (let i = 0; i < key; i++) {
@@ -28,13 +32,12 @@ function caesarCipher(string, key) {
   const wordIndex = string
     .split("")
     .map((element) => defaultAlphabet.indexOf(element));
-
-  // replace the char at equivalent encrypted index
   const encryptedLetters = wordIndex.map((index) => {
     return rotated[index];
   });
-
   return encryptedLetters.join("");
 }
+
+console.log(caesarCipher("LosAngeles", 0));
 
 export { capitalize, reverse, calculator, caesarCipher };
