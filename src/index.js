@@ -9,5 +9,6 @@ function reverse(string) {
 
 const calculator = {
   add: (a, b) => a + b,
-}
+  subtract: (a, b) => a - b,
+};
 export { capitalize, reverse, calculator };

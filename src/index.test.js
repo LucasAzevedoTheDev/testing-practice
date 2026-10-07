@@ -8,6 +8,11 @@ test("Reverse string", () => {
   expect(reverse("nordic")).toBe("cidron");
 });
 
-test("Calculator", () => {
-  expect(calculator.add(1, 1)).toBe(2);
+describe("Calculator", () => {
+  test("Add", () => {
+    expect(calculator.add(1, 1)).toBe(2);
+  });
+  test("Subtract", () => {
+    expect(calculator.subtract(2, 1)).toBe(1);
+  });
 });
