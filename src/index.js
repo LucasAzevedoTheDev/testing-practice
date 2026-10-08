@@ -27,9 +27,19 @@ function caesarCipher(string, key) {
 
   let rotated = rotateAlphabet([...defaultAlphabet], key);
 
+  if (/[\s.,\/#!$%^&*;:{}=\-_`~()"?'\[\]]/.test(string)) {
+    //split string
+    // store index of special characters
+    // create a nested array with characters and original index
+    // return nested array
+
+    //        outside here
+    // insert special characters at original index
+  }
+
   const split = string.split("");
   const indexRecord = [];
-
+  console.log(split);
   split.forEach((letter, index) => {
     const isUpperCase = () => {
       return /[A-Z]/.test(letter);
@@ -43,7 +53,6 @@ function caesarCipher(string, key) {
   let wordIndex = stringDefault
     .split("")
     .map((element) => defaultAlphabet.indexOf(element));
-
   let encryptedLetters = wordIndex.map((index) => {
     return rotated[index];
   });
@@ -54,7 +63,7 @@ function caesarCipher(string, key) {
     }
     return letter;
   });
-
+  console.log(finalLetters);
   return finalLetters.join("");
 }
 
