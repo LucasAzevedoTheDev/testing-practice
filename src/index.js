@@ -28,13 +28,19 @@ function caesarCipher(string, key) {
   let rotated = rotateAlphabet([...defaultAlphabet], key);
 
   if (/[\s.,\/#!$%^&*;:{}=\-_`~()"?'\[\]]/.test(string)) {
-    //split string
-    // store index of special characters
-    // create a nested array with characters and original index
-    // return nested array
+    //1 split string
+    const specialSplit = string.split("");
+    //2  store index of special characters
+    specialSplit.forEach((char, index) => {
+      if (/[\s.,\/#!\$%^&*;:{}=\-_`~()"?'\[\]]/.test(char)) {
+        console.log(`Match found! Character "${char}" is at index ${index}`);
+      }
+    });
+    //3  create a nested array with characters and original index
+    //4  return nested array
 
     //        outside here
-    // insert special characters at original index
+    //5  insert special characters at original index
   }
 
   const split = string.split("");
