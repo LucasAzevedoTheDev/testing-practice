@@ -23,7 +23,14 @@ describe("Calculator", () => {
   });
 });
 
-test("Caesar cipher", () => {
-  expect(caesarCipher("xyz", 3)).toBe("abc");
-  expect(caesarCipher("heLLo", 3)).toBe("khOOr");
+describe("Caesar Cipher", () => {
+  test("Normal letters", () => {
+    expect(caesarCipher("xyz", 3)).toBe("abc");
+  });
+  test("Uppercase letters", () => {
+    expect(caesarCipher("heLLo", 3)).toBe("khOOr");
+  });
+  test("Punctuation", () => {
+    expect(caesarCipher("Hello, World!", 3)).toBe("Khoor, Zruog!");
+  });
 });
