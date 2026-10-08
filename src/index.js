@@ -26,21 +26,17 @@ function caesarCipher(string, key) {
   const defaultAlphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
   let rotated = rotateAlphabet([...defaultAlphabet], key);
+  const specialIndexRecord = [];
 
   if (/[\s.,\/#!$%^&*;:{}=\-_`~()"?'\[\]]/.test(string)) {
-    //1 split string
     const specialSplit = string.split("");
-    //2  store index of special characters
+
     specialSplit.forEach((char, index) => {
       if (/[\s.,\/#!\$%^&*;:{}=\-_`~()"?'\[\]]/.test(char)) {
-        console.log(`Match found! Character "${char}" is at index ${index}`);
+        specialIndexRecord.push([index, char]);
       }
     });
-    //3  create a nested array with characters and original index
-    //4  return nested array
-
-    //        outside here
-    //5  insert special characters at original index
+    console.log(specialIndexRecord);
   }
 
   const split = string.split("");
@@ -70,6 +66,15 @@ function caesarCipher(string, key) {
     return letter;
   });
   console.log(finalLetters);
+
+  const hasSpecialChars = finalLetters.includes(undefined);
+
+  if (hasSpecialChars) {
+    console.log("worked");
+    //5  insert special characters at original index
+    
+  }
+
   return finalLetters.join("");
 }
 
