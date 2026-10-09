@@ -24,9 +24,10 @@ function rotateAlphabet(array, key) {
 function caesarCipher(string, key) {
   // prettier-ignore
   const defaultAlphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
   let rotated = rotateAlphabet([...defaultAlphabet], key);
+
   const specialIndexRecord = [];
+  const UppercaseIndexRecord = [];
 
   if (/[\s.,\/#!$%^&*;:{}=\-_`~()"?'\[\]]/.test(string)) {
     const specialSplit = string.split("");
@@ -36,18 +37,14 @@ function caesarCipher(string, key) {
         specialIndexRecord.push([index, char]);
       }
     });
-    console.log(specialIndexRecord);
   }
-
   const split = string.split("");
-  const indexRecord = [];
-  console.log(split);
   split.forEach((letter, index) => {
     const isUpperCase = () => {
       return /[A-Z]/.test(letter);
     };
     if (isUpperCase()) {
-      indexRecord.push(index);
+      UppercaseIndexRecord.push(index);
     }
   });
 
@@ -60,20 +57,19 @@ function caesarCipher(string, key) {
   });
 
   const finalLetters = encryptedLetters.map((letter, index) => {
-    if (indexRecord.includes(index)) {
+    if (UppercaseIndexRecord.includes(index)) {
       return letter.toUpperCase();
     }
     return letter;
   });
-  console.log(finalLetters);
 
-  const hasSpecialChars = finalLetters.includes(undefined);
-
-  if (hasSpecialChars) {
-    console.log("worked");
-    //5  insert special characters at original index
-    
-  }
+  finalLetters.forEach((letter, index) => {
+    if (letter === undefined) {
+      finalLetters[index] = specialIndexRecord.find(
+        (pair) => pair[0] === index,
+      )[1];
+    }
+  });
 
   return finalLetters.join("");
 }
