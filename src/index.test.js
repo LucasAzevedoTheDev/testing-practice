@@ -34,3 +34,20 @@ describe("Caesar Cipher", () => {
     expect(caesarCipher("Hello, World!", 3)).toBe("Khoor, Zruog!");
   });
 });
+
+describe("Analyze Array", () => {
+  const object = analyzeArray([1, 8, 3, 4, 2, 6]);
+
+  test("Average", () => {
+    expect(object).toHaveProperty("average", 4);
+  });
+  test("Min", () => {
+    expect(object).toHaveProperty("min", 1);
+  });
+  test("Max", () => {
+    expect(object).toHaveProperty("max", 8);
+  });
+  test("Length", () => {
+    expect(object).toHaveProperty("length", 6);
+  });
+});
