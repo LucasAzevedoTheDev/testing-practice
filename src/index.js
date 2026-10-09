@@ -74,4 +74,13 @@ function caesarCipher(string, key) {
   return finalLetters.join("");
 }
 
-export { capitalize, reverse, calculator, caesarCipher };
+function analyzeArray(array) {
+  return {
+    average: array.reduce((sum, current) => sum + current, 0) / array.length,
+    min: Math.min(...array),
+    max: Math.max(...array),
+    length: array.length,
+  };
+}
+
+export { capitalize, reverse, calculator, caesarCipher, analyzeArray };
