@@ -1,12 +1,15 @@
+// CAPITALIZATION TEST
 function capitalize(string) {
   const capitalized = string.charAt(0).toUpperCase() + string.slice(1);
   return capitalized;
 }
 
+// REVERSE STRING TEST
 function reverse(string) {
   return string.split("").reverse().join("");
 }
 
+// CALCULATOR TEST
 const calculator = {
   add: (a, b) => a + b,
   subtract: (a, b) => a - b,
@@ -14,6 +17,7 @@ const calculator = {
   multiply: (a, b) => a * b,
 };
 
+// CAESAR CIPHER TEST
 function rotateAlphabet(array, key) {
   for (let i = 0; i < key; i++) {
     array.push(array.shift());
@@ -74,6 +78,7 @@ function caesarCipher(string, key) {
   return finalLetters.join("");
 }
 
+// ANALYZE ARRAY TEST
 function analyzeArray(array) {
   return {
     average: array.reduce((sum, current) => sum + current, 0) / array.length,
