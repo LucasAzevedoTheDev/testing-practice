@@ -1,5 +1,5 @@
 {
-  "name": "template-repo",
+  "name": "testing-practice",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -11,16 +11,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LucasAzevedoTheDev/template-repo.git"
+    "url": "git+https://github.com/LucasAzevedoTheDev/testing-practice.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/LucasAzevedoTheDev/template-repo/issues"
+    "url": "https://github.com/LucasAzevedoTheDev/testing-practice/issues"
   },
-  "homepage": "https://github.com/LucasAzevedoTheDev/template-repo#readme",
+  "homepage": "https://github.com/LucasAzevedoTheDev/testing-practice#readme",
   "devDependencies": {
     "@babel/preset-env": "^7.29.7",
     "@eslint/js": "^10.0.1",
